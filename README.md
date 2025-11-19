@@ -1,0 +1,67 @@
+# PrimeTrade.ai - Crypto Trading Terminal
+
+A full-stack trading journal application built with a focus on "Dark Fintech" aesthetics, security, and performance. This project allows traders to log positions, track PnL, and filter trade history in a secure, authenticated environment.
+
+## 🚀 Tech Stack
+
+* **Frontend:** Next.js (App Router), Tailwind CSS (v4), Framer Motion, Lucide Icons
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (Atlas)
+* **Authentication:** JWT (JSON Web Tokens)
+* **Security:** bcryptjs for password hashing, CORS protection
+
+## ✨ Key Features
+
+* **Dark Fintech UI:** Custom glassmorphism design with neon accents and mesh gradients.
+* **Secure Auth:** Full Signup/Login flow with JWT stored in persistent context.
+* **Dashboard:** Real-time CRUD operations for trade logging.
+* **Smart Filtering:** Filter trades by Long/Short positions and dynamic search by asset pair.
+* **Responsive:** Fully optimized for mobile and desktop terminals.
+
+## 🛠️ Installation & Setup
+
+### 1. Clone the Repository
+
+    git clone https://github.com/YOUR_USERNAME/primetrade-assessment.git
+    cd primetrade-assessment
+
+### 2. Backend Setup
+Navigate to the backend folder and install dependencies:
+
+    cd backend
+    npm install
+
+Create a `.env` file in the `backend` folder:
+
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string_here
+    JWT_SECRET=your_secret_key_here
+
+Start the server:
+
+    npx nodemon server.js
+
+### 3. Frontend Setup
+Open a new terminal, navigate to the frontend folder, and install dependencies:
+
+    cd frontend
+    npm install
+
+Start the client:
+
+    npm run dev
+
+The application will launch at `http://localhost:3000`.
+
+## 📂 Project Structure
+
+* `backend/` - Express API, Models, Controllers, and Middleware.
+* `frontend/` - Next.js 13+ App Router structure with Context API state management.
+
+## 🛡️ API Endpoints
+
+* `POST /api/auth/signup` - Register new user
+* `POST /api/auth/login` - Authenticate user
+* `GET /api/trades` - Fetch user's trade history (Protected)
+* `POST /api/trades` - Log a new trade (Protected)
+* `DELETE /api/trades/:id` - Remove a trade entry (Protected)
