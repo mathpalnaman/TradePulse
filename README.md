@@ -65,3 +65,12 @@ The application will launch at `http://localhost:3000`.
 * `GET /api/trades` - Fetch user's trade history (Protected)
 * `POST /api/trades` - Log a new trade (Protected)
 * `DELETE /api/trades/:id` - Remove a trade entry (Protected)
+
+## 📈 Scalability & Production Strategy
+
+To scale this application for production, I would implement the following architectural improvements:
+
+1.  **Database Indexing:** Currently, the app searches trades by `pair` (e.g., BTC/USDT). Adding a MongoDB index on the `pair` and `user` fields would make search queries instant, even with millions of trade records.
+2.  **Code Splitting & Lazy Loading:** The Next.js frontend already supports code splitting. For scaling, I would implement dynamic imports for heavy components (like the Charting library or Modals) so the initial page load remains fast on mobile networks.
+3.  **Error Logging Service:** Instead of saving logs to a local `server.log` file (which is hard to manage on multiple servers), I would integrate a cloud logging service like **Sentry** or **Datadog** to track crash reports in real-time.
+4.  **Rate Limiting:** To prevent abuse of the API (e.g., someone spamming the "Create Trade" button), I would add `express-rate-limit` middleware to the backend to restrict requests per IP address.
