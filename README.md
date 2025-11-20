@@ -60,11 +60,13 @@ The application will launch at `http://localhost:3000`.
 
 ## 🛡️ API Endpoints
 
-* `POST /api/auth/signup` - Register new user
-* `POST /api/auth/login` - Authenticate user
-* `GET /api/trades` - Fetch user's trade history (Protected)
-* `POST /api/trades` - Log a new trade (Protected)
-* `DELETE /api/trades/:id` - Remove a trade entry (Protected)
+| Method | Endpoint | Description | Request Body (JSON) |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/auth/signup` | Register new user | `{ "name": "...", "email": "...", "password": "..." }` |
+| **POST** | `/api/auth/login` | Authenticate user | `{ "email": "...", "password": "..." }` |
+| **GET** | `/api/trades` | Get user's trades | *Headers: Authorization: Bearer <token>* |
+| **POST** | `/api/trades` | Log a new trade | `{ "pair": "BTC/USDT", "type": "Long", "entryPrice": 50000, "amount": 1000, "status": "Open" }` |
+| **DELETE** | `/api/trades/:id` | Delete a trade | *Headers: Authorization: Bearer <token>* |
 
 ## 📈 Scalability & Production Strategy
 
