@@ -16,8 +16,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-6xl font-bold tracking-tighter mb-6">
-            PRIME<span className="text-crypto-primary">TRADE</span>
-            <span className="text-crypto-accent">.AI</span>
+            TRADE<span className="text-crypto-primary">PULSE</span>
+            {/* <span className="text-crypto-accent">.AI</span> */}
           </h1>
           <p className="text-xl text-crypto-muted mb-10 leading-relaxed">
             The advanced trading journal for the decentralized era. <br />

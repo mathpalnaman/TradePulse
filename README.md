@@ -1,6 +1,10 @@
-# PrimeTrade.ai - Crypto Trading Terminal
+# TradePulse - Crypto Trading Terminal
 
-A full-stack trading journal application built with a focus on "Dark Fintech" aesthetics, security, and performance. This project allows traders to log positions, track PnL, and filter trade history in a secure, authenticated environment.
+**The Problem:** Crypto traders often struggle to track their performance across multiple exchanges. Spreadsheets are messy and lack real-time data structure.
+
+**The Solution:** TradePulse is a dedicated, secure trading journal that offers a unified dashboard for logging positions, visualizing PnL, and maintaining a disciplined trading history.
+
+TradePulse is a full-stack application built with a focus on "Dark Fintech" aesthetics, security, and performance.
 
 ## 🚀 Tech Stack
 
@@ -18,12 +22,18 @@ A full-stack trading journal application built with a focus on "Dark Fintech" ae
 * **Smart Filtering:** Filter trades by Long/Short positions and dynamic search by asset pair.
 * **Responsive:** Fully optimized for mobile and desktop terminals.
 
+## 🏗️ System Architecture
+
+The application uses a decoupled architecture with a RESTful Node.js API serving a Next.js client.
+* **State Management:** React Context API with persistent local storage synchronization for JWTs.
+* **Data Flow:** The backend serves as a centralized source of truth, validating all trade data before storage in MongoDB.
+* **Security Layer:** All protected routes utilize custom middleware to verify JWT signatures before granting access to private trade data.
+
 ## 🛠️ Installation & Setup
 
 ### 1. Clone the Repository
-
-    git clone https://github.com/YOUR_USERNAME/primetrade-assessment.git
-    cd primetrade-assessment
+git clone [https://github.com/YOUR_USERNAME/TradePulse.git](https://github.com/YOUR_USERNAME/TradePulse.git)
+cd TradePulse
 
 ### 2. Backend Setup
 Navigate to the backend folder and install dependencies:
@@ -68,11 +78,11 @@ The application will launch at `http://localhost:3000`.
 | **POST** | `/api/trades` | Log a new trade | `{ "pair": "BTC/USDT", "type": "Long", "entryPrice": 50000, "amount": 1000, "status": "Open" }` |
 | **DELETE** | `/api/trades/:id` | Delete a trade | *Headers: Authorization: Bearer <token>* |
 
-## 📈 Scalability & Production Strategy
+## 📈 Future Roadmap & Scalability
 
-To scale this application for production, I would implement the following architectural improvements:
+The following architectural improvements are planned for the next version to handle high-frequency data and increased user load:
 
-1.  **Database Indexing:** Currently, the app searches trades by `pair` (e.g., BTC/USDT). Adding a MongoDB index on the `pair` and `user` fields would make search queries instant, even with millions of trade records.
-2.  **Code Splitting & Lazy Loading:** The Next.js frontend already supports code splitting. For scaling, I would implement dynamic imports for heavy components (like the Charting library or Modals) so the initial page load remains fast on mobile networks.
-3.  **Error Logging Service:** Instead of saving logs to a local `server.log` file (which is hard to manage on multiple servers), I would integrate a cloud logging service like **Sentry** or **Datadog** to track crash reports in real-time.
-4.  **Rate Limiting:** To prevent abuse of the API (e.g., someone spamming the "Create Trade" button), I would add `express-rate-limit` middleware to the backend to restrict requests per IP address.
+1.  **Database Optimization:** Implementation of compound indexing on pair and user fields to ensure sub-millisecond query performance as dataset grows to millions of records.
+2.  **Performance:** Enhanced code splitting and dynamic imports for heavy visualization components (Charts/Graphs) to maintain high Core Web Vitals scores.
+3.  **Observability:** Integration of cloud logging services (Sentry/Datadog) to replace local file logging, enabling real-time crash reporting and distributed tracing.
+4.  **Security Hardening:** Implementation of `express-rate-limit` to prevent DDoS attacks and migration to HttpOnly cookies for enhanced XSS protection.

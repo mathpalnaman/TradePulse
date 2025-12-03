@@ -100,7 +100,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <LayoutDashboard className="text-crypto-primary" />
-              <span className="font-bold text-xl tracking-tight">PRIME<span className="text-crypto-primary">TRADE</span></span>
+              <span className="font-bold text-xl tracking-tight">TRADE<span className="text-crypto-primary">PULSE</span></span>
             </div>
             <div className="flex items-center gap-4">
               <div className="hidden md:block text-right">
