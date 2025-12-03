@@ -66,6 +66,7 @@ The application will launch at `http://localhost:3000`.
 ## 📂 Project Structure
 
 * `backend/` - Express API, Models, Controllers, and Middleware.
+
 * `frontend/` - Next.js 13+ App Router structure with Context API state management.
 
 ## 🛡️ API Endpoints
